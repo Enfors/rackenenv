@@ -1,2 +1,3 @@
-# dev-env
-Personal Vagrant box running Linux for development. Probably of no interest to anyone but me.
+# rackenenv
+Vagrant environment for RackenFlow development, based on
+https://github.com/enfors/dev-env.

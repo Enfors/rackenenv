@@ -5,20 +5,16 @@
 ProvisionDev()
 {
     Msg " ==== ProvisionDev ==== "
-    SetHostname dev
+    SetHostname rackendev
     CloneGitRepo /home/vagrant/devel/elisp/enfors-lib/ \
 		 https://github.com/enfors/enfors-lib
     ConfigureUser vagrant
     InstallEmacs25
-    #FixDB
-    #InstallDeb xfce4
     InstallPythonLibs
     installPython36
     InstallElpySupport
     InstallX
     InstallIntelliJ
-    # InstallOpenCV
-    # InstallEnforsBot
 }
 
 FixDB()
@@ -26,6 +22,7 @@ FixDB()
     Msg " == Fixing database..."
     Cmd /usr/share/debconf/fix_db.pl
 }
+
 InstallEmacs25()
 {
     Msg " == Preparing for installing emacs25..."
@@ -103,19 +100,6 @@ InstallOpenCV()
     MkDir $HOME/build 750 vagrant vagrant
     
     CloneGitRepo https://github.com/milq/milq.git $HOME/build/milq >/dev/null
-}
-
-InstallEnforsBot()
-{
-    olddir=$(pwd)
-
-    cd /home/vagrant/devel/python
-
-    for repo in EnforsBot TwitGrep botymcbotface math_engine; do
-	CloneGitRepo https://github.com/enfors/$repo $repo
-    done
-    
-    cd $olddir
 }
 
 ConfigureUser()
