@@ -55,8 +55,8 @@ InstallPythonLibs()
     Msg " = Installing misc pip3 packages..."
     pip3 install --upgrade telepot tweepy flask twine
 
-    Msg " = Installing ImageMagick for Pillow..."
-    InstallDeb imagemagick
+    # Msg " = Installing ImageMagick for Pillow..."
+    # InstallDeb imagemagick
 }
 
 InstallPython36()
